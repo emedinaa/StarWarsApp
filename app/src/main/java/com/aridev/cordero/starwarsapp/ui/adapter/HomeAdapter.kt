@@ -5,17 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aridev.cordero.starwarsapp.core.dataApp.getDrawableImage
 import com.aridev.cordero.starwarsapp.core.dataApp.setOnClickListenerBounce
-import com.aridev.cordero.starwarsapp.data.Item
+import com.aridev.cordero.starwarsapp.data.ItemDTO
 import com.aridev.cordero.starwarsapp.databinding.ItemHomeBinding
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
-    var list : List<Item> = emptyList<Item>()
+    var list : List<ItemDTO> = emptyList<ItemDTO>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    lateinit var actionCategory : ((item : Item) -> Unit)
+    lateinit var actionCategory : ((item : ItemDTO) -> Unit)
     inner class  MyViewHolder(val binding : ItemHomeBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -37,7 +37,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
     }
     override fun getItemCount() = list.size
 
-    fun addItems(list : List<Item>) {
+    fun addItems(list : List<ItemDTO>) {
         val lastPosition = this.list.size - 1
         this.list += list
         notifyItemRangeInserted(lastPosition,list.size)

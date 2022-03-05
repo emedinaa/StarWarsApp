@@ -4,17 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aridev.cordero.starwarsapp.core.dataApp.getDrawableImage
-import com.aridev.cordero.starwarsapp.data.Item
+import com.aridev.cordero.starwarsapp.data.ItemDTO
 import com.aridev.cordero.starwarsapp.databinding.ItemItemSearchBinding
 
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
-    var list = emptyList<Item>()
+    var list = emptyList<ItemDTO>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    lateinit var actionSearch : ((item : Item) -> Unit)
+    lateinit var actionSearch : ((item : ItemDTO) -> Unit)
     inner class  MyViewHolder(val binding : ItemItemSearchBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

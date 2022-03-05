@@ -8,9 +8,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import com.aridev.cordero.starwarsapp.R
 import com.aridev.cordero.starwarsapp.core.dataApp.increaseViewWidthAnimation
-import com.aridev.cordero.starwarsapp.data.model.Categories
+import com.aridev.cordero.starwarsapp.data.dto.Categories
 import com.aridev.cordero.starwarsapp.databinding.ActivityMainBinding
-import com.aridev.cordero.starwarsapp.ui.fragments.CategoriesFragment
 import com.aridev.cordero.starwarsapp.ui.fragments.SettingsFragment
 import android.content.Context
 import android.content.res.Configuration
@@ -24,7 +23,6 @@ import com.aridev.cordero.starwarsapp.ui.fragments.HomeFragment
 import com.aridev.cordero.starwarsapp.ui.fragments.SearchFragment
 import com.aridev.cordero.starwarsapp.ui.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

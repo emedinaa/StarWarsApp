@@ -1,6 +1,5 @@
 package com.aridev.cordero.starwarsapp.ui.viewModel
 
-import android.opengl.Visibility
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
@@ -8,10 +7,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aridev.cordero.starwarsapp.core.dataApp.DetailState
-import com.aridev.cordero.starwarsapp.data.Item
-import com.aridev.cordero.starwarsapp.data.model.Categories
-import com.aridev.cordero.starwarsapp.domain.GetItemDetail
-import com.aridev.cordero.starwarsapp.domain.GetThemeApp
+import com.aridev.cordero.starwarsapp.data.Categories
+import com.aridev.cordero.starwarsapp.data.ItemDTO
+import com.aridev.cordero.starwarsapp.domain.usecase.GetItemDetail
+import com.aridev.cordero.starwarsapp.domain.usecase.GetThemeApp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 import javax.inject.Inject
@@ -157,7 +156,7 @@ class DetailViewModel  @Inject constructor(
         }
     }
 
-    private fun setPeople(item : Item) {
+    private fun setPeople(item : ItemDTO) {
         val viewState = ViewState(
             name = item.name ?: "",
             imgDetail = item.url ?: "",
@@ -189,7 +188,7 @@ class DetailViewModel  @Inject constructor(
         _listStarships.postValue(item.starships ?: listOf())
     }
 
-    private fun setPlanets(item : Item) {
+    private fun setPlanets(item : ItemDTO) {
         val viewState = ViewState(
             name = item.name ?: "",
             imgDetail = item.url ?: "",
@@ -209,7 +208,7 @@ class DetailViewModel  @Inject constructor(
         _listFilms.postValue( item.films ?: listOf())
     }
 
-    private fun setFilms(item : Item) {
+    private fun setFilms(item : ItemDTO) {
         val viewState = ViewState(
             name = item.title ?: "",
             imgDetail = item.url ?: "",
@@ -236,7 +235,7 @@ class DetailViewModel  @Inject constructor(
 
     }
 
-    private fun setSpecies(item : Item) {
+    private fun setSpecies(item : ItemDTO) {
         val viewState = ViewState(
             name = item.name ?: "",
             imgDetail = item.url ?: "",
@@ -262,7 +261,7 @@ class DetailViewModel  @Inject constructor(
         _listFilms.postValue( item.films ?: listOf())
     }
 
-    private fun setVehicle(item : Item) {
+    private fun setVehicle(item : ItemDTO) {
         val viewState = ViewState(
             name = item.name ?: "",
             imgDetail = item.url ?: "",
@@ -284,7 +283,7 @@ class DetailViewModel  @Inject constructor(
         _listFilms.postValue( item.films ?: listOf())
     }
 
-    private fun setStarships(item : Item) {
+    private fun setStarships(item : ItemDTO) {
         val viewState = ViewState(
             name = item.name ?: "",
             imgDetail = item.url ?: "",

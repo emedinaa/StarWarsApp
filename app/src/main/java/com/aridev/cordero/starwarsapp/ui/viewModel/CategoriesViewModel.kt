@@ -5,9 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aridev.cordero.starwarsapp.data.Item
-import com.aridev.cordero.starwarsapp.data.model.Categories
-import com.aridev.cordero.starwarsapp.domain.GetItemList
+import com.aridev.cordero.starwarsapp.data.ItemDTO
+import com.aridev.cordero.starwarsapp.data.dto.Categories
+import com.aridev.cordero.starwarsapp.domain.usecase.GetItemList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,8 +17,8 @@ class CategoriesViewModel  @Inject constructor(
     private val getListItem  : GetItemList
 ): ViewModel() {
 
-    private val _itemList = MutableLiveData<List<Item>>()
-    val itemList: LiveData<List<Item>> = _itemList
+    private val _itemList = MutableLiveData<List<ItemDTO>>()
+    val itemList: LiveData<List<ItemDTO>> = _itemList
 
     private val _progress = MutableLiveData<Boolean>()
     val progress : LiveData<Boolean> = _progress
@@ -31,7 +31,7 @@ class CategoriesViewModel  @Inject constructor(
             getListItem.getItemList(nextUrl) { success, error ->
                 if (error.isNullOrEmpty()) {
                     nextUrl = success?.next ?: ""
-                    var list : List<Item> = success?.results ?: arrayListOf()
+                    var list : List<ItemDTO> = success?.results ?: arrayListOf()
                     list.forEach {
                         if(it.name != null) {
                         } else if(it.title != null) {

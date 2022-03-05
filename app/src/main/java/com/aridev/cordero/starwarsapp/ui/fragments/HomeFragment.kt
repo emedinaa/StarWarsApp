@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import com.aridev.cordero.starwarsapp.R
 import com.aridev.cordero.starwarsapp.core.dataApp.ThemeApp
 import com.aridev.cordero.starwarsapp.core.dataApp.openUrlLink
-import com.aridev.cordero.starwarsapp.data.model.Categories
+import com.aridev.cordero.starwarsapp.data.dto.Categories
 import com.aridev.cordero.starwarsapp.databinding.FragmentHomeBinding
 import com.aridev.cordero.starwarsapp.ui.activities.MainActivity
 import com.aridev.cordero.starwarsapp.ui.viewModel.HomeViewModel

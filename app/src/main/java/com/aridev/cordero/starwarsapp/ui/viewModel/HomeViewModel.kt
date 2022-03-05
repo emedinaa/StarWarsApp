@@ -3,7 +3,7 @@ package com.aridev.cordero.starwarsapp.ui.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.aridev.cordero.starwarsapp.domain.GetThemeApp
+import com.aridev.cordero.starwarsapp.domain.usecase.GetThemeApp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

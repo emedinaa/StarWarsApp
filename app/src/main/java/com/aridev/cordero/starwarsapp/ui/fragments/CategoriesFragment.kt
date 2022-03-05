@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.aridev.cordero.starwarsapp.core.dataApp.addSwiperStyleVp
-import com.aridev.cordero.starwarsapp.data.model.Categories
+import com.aridev.cordero.starwarsapp.data.dto.Categories
 import com.aridev.cordero.starwarsapp.databinding.FragmentCategoriesBinding
 import com.aridev.cordero.starwarsapp.ui.activities.DetailActivity
 import com.aridev.cordero.starwarsapp.ui.activities.MainActivity

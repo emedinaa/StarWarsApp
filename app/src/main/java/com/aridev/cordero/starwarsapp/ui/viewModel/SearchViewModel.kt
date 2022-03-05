@@ -6,11 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aridev.cordero.starwarsapp.core.dataApp.baseUrl
-import com.aridev.cordero.starwarsapp.data.Item
-import com.aridev.cordero.starwarsapp.data.model.Categories
-import com.aridev.cordero.starwarsapp.data.model.Category
-import com.aridev.cordero.starwarsapp.domain.GetItemList
-import com.aridev.cordero.starwarsapp.domain.SearchItem
+import com.aridev.cordero.starwarsapp.data.ItemDTO
+import com.aridev.cordero.starwarsapp.data.dto.Categories
+import com.aridev.cordero.starwarsapp.data.dto.CategoryDTO
+import com.aridev.cordero.starwarsapp.domain.usecase.SearchItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,11 +19,11 @@ class SearchViewModel @Inject constructor(
     private val searchItem  : SearchItem
 ) : ViewModel() {
 
-    private val _itemList = MutableLiveData<List<Item>>()
-    val itemList: LiveData<List<Item>> = _itemList
+    private val _itemList = MutableLiveData<List<ItemDTO>>()
+    val itemList: LiveData<List<ItemDTO>> = _itemList
 
-    private val _listCategories = MutableLiveData<List<Category>>()
-    val listCategories : LiveData<List<Category>> = _listCategories
+    private val _listCategories = MutableLiveData<List<CategoryDTO>>()
+    val listCategories : LiveData<List<CategoryDTO>> = _listCategories
 
     private val _progress = MutableLiveData<Boolean>()
     val progress : LiveData<Boolean> = _progress
@@ -42,7 +41,7 @@ class SearchViewModel @Inject constructor(
             searchItem.getSearch(url) { success, error ->
                 if (error.isNullOrEmpty()) {
                     nextUrl = success?.next ?: ""
-                    var list : List<Item> = success?.results ?: arrayListOf()
+                    var list : List<ItemDTO> = success?.results ?: arrayListOf()
                     list.forEach {
                         if(it.name != null) {
                         } else if(it.title != null) {
@@ -71,14 +70,14 @@ class SearchViewModel @Inject constructor(
     }
 
     fun getCategories() {
-        val list = emptyList<Category>().toMutableList()
+        val list = emptyList<CategoryDTO>().toMutableList()
         categorySelected = Categories.PEOPLE
-        list.add(Category(Categories.PEOPLE,true))
-        list.add(Category(Categories.PLANETS, false))
-        list.add(Category(Categories.FILMS,false))
-        list.add(Category(Categories.SPECIES,false))
-        list.add(Category(Categories.VEHICLES,false))
-        list.add(Category(Categories.STARSHIPS,false))
+        list.add(CategoryDTO(Categories.PEOPLE,true))
+        list.add(CategoryDTO(Categories.PLANETS, false))
+        list.add(CategoryDTO(Categories.FILMS,false))
+        list.add(CategoryDTO(Categories.SPECIES,false))
+        list.add(CategoryDTO(Categories.VEHICLES,false))
+        list.add(CategoryDTO(Categories.STARSHIPS,false))
 
         _listCategories.value = list
     }

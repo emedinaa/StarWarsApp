@@ -1,4 +1,4 @@
-package com.aridev.cordero.starwarsapp.core.sharedPreference
+package com.aridev.cordero.starwarsapp.data.sharedPreference
 
 import android.app.Activity
 import android.content.Context

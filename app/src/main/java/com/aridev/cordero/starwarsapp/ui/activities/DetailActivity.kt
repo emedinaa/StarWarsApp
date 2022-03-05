@@ -1,18 +1,15 @@
 package com.aridev.cordero.starwarsapp.ui.activities
 
 import android.content.Intent
-import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
-import com.aridev.cordero.starwarsapp.R
 import com.aridev.cordero.starwarsapp.core.dataApp.ThemeApp
 import com.aridev.cordero.starwarsapp.core.dataApp.getDrawableImage
 import com.aridev.cordero.starwarsapp.core.dataApp.getHeightCustom
 import com.aridev.cordero.starwarsapp.core.dataApp.increaseViewHeightAnimation
-import com.aridev.cordero.starwarsapp.data.Item
-import com.aridev.cordero.starwarsapp.data.model.Categories
+import com.aridev.cordero.starwarsapp.data.dto.Categories
 import com.aridev.cordero.starwarsapp.databinding.ActivityDetailBinding
 import com.aridev.cordero.starwarsapp.ui.adapter.SubItemAdapter
 import com.aridev.cordero.starwarsapp.ui.dialog.ProgressDialog

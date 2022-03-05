@@ -1,4 +1,4 @@
-package com.aridev.cordero.starwarsapp.core
+package com.aridev.cordero.starwarsapp.data.remote
 
 import com.aridev.cordero.starwarsapp.core.dataApp.baseUrl
 import com.google.gson.GsonBuilder

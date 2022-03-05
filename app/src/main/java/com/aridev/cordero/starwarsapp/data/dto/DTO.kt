@@ -1,13 +1,14 @@
 package com.aridev.cordero.starwarsapp.data
 
+import com.aridev.cordero.starwarsapp.R
 import java.io.Serializable
 
 class ItemResponse(
-    var results: List<Item>,
+    var results: List<ItemDTO>,
     var next : String
 ) : Serializable
 
-class Item(
+class ItemDTO(
     var name: String?,
     var gender: String?,
     var title : String?,
@@ -52,4 +53,9 @@ class Item(
     var residents : List<String>?,
     var pilots : List<String>?,
     var url : String?
+) : Serializable
+
+class CategoryDTO  (
+    var type: Categories,
+    var status: Boolean
 ) : Serializable

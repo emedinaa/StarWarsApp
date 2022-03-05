@@ -1,7 +1,6 @@
-package com.aridev.cordero.starwarsapp.data.retrofitRepository
+package com.aridev.cordero.starwarsapp.data.remote
 
-import com.aridev.cordero.starwarsapp.core.RetrofitHelper
-import com.aridev.cordero.starwarsapp.data.Item
+import com.aridev.cordero.starwarsapp.data.ItemDTO
 import com.aridev.cordero.starwarsapp.data.ItemResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -25,7 +24,7 @@ class RetrofitService {
         }
     }
 
-    suspend fun getItemDetail( url : String, callback: (success: Item?, error: String?) -> Unit) {
+    suspend fun getItemDetail( url : String, callback: (success: ItemDTO?, error: String?) -> Unit) {
         return withContext(Dispatchers.IO) {
             val response = retrofit.create(ApiClient::class.java).getItemDetail(url = url)
             if(response.isSuccessful) {
