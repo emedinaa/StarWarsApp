@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.aridev.cordero.starwarsapp.data.dto.Categories
 import com.aridev.cordero.starwarsapp.databinding.FragmentSearchBinding
 import com.aridev.cordero.starwarsapp.ui.activities.MainActivity
 import android.view.inputmethod.EditorInfo
@@ -14,8 +13,9 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
 import androidx.fragment.app.viewModels
 import com.aridev.cordero.starwarsapp.core.dataApp.*
+import com.aridev.cordero.starwarsapp.data.Categories
+import com.aridev.cordero.starwarsapp.data.CategoryDTO
 import com.aridev.cordero.starwarsapp.data.ItemDTO
-import com.aridev.cordero.starwarsapp.data.dto.CategoryDTO
 import com.aridev.cordero.starwarsapp.ui.activities.DetailActivity
 import com.aridev.cordero.starwarsapp.ui.adapter.CategoriesAdapter
 import com.aridev.cordero.starwarsapp.ui.adapter.SearchAdapter
@@ -34,7 +34,7 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-        ): View? {
+        ): View {
         _binding = FragmentSearchBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

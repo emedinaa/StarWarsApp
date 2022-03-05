@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aridev.cordero.starwarsapp.R
-import com.aridev.cordero.starwarsapp.data.dto.Categories
-import com.aridev.cordero.starwarsapp.data.dto.CategoryDTO
+import com.aridev.cordero.starwarsapp.data.Categories
+import com.aridev.cordero.starwarsapp.data.CategoryDTO
 import com.aridev.cordero.starwarsapp.databinding.ItemCategoriesBinding
 
 class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.MyViewHolder>() {

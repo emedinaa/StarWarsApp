@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.aridev.cordero.starwarsapp.R
 import com.aridev.cordero.starwarsapp.databinding.FragmentDetailBinding
 import com.aridev.cordero.starwarsapp.ui.viewModel.DetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +19,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-        ): View? {
+        ): View {
         _binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

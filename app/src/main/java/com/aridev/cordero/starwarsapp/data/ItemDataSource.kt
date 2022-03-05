@@ -3,13 +3,12 @@ package com.aridev.cordero.starwarsapp.data
 import com.aridev.cordero.starwarsapp.data.remote.RetrofitService
 import com.aridev.cordero.starwarsapp.domain.model.Item
 import com.aridev.cordero.starwarsapp.domain.repository.ItemRepository
+import javax.inject.Inject
 
 /**
  * Created by Eduardo Medina on 4/03/22.
  */
-class ItemDataSource : ItemRepository {
-
-    private val api = RetrofitService()
+class ItemDataSource @Inject constructor(private val api:RetrofitService) : ItemRepository {
 
     override suspend fun getItem(
         next: String, callback: (success: Item) -> Unit,

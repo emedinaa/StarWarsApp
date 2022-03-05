@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.aridev.cordero.starwarsapp.data.Categories
 import com.aridev.cordero.starwarsapp.data.ItemDTO
-import com.aridev.cordero.starwarsapp.data.dto.Categories
 import com.aridev.cordero.starwarsapp.domain.usecase.GetItemList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -28,8 +28,7 @@ class CategoriesViewModel  @Inject constructor(
         _progress.value = true
         if (category != null) nextUrl = category.url
         viewModelScope.launch {
-            getListItem.getItemList(nextUrl) { success, error ->
-                if (error.isNullOrEmpty()) {
+            getListItem.getItemList(nextUrl, { success ->
                     nextUrl = success?.next ?: ""
                     var list : List<ItemDTO> = success?.results ?: arrayListOf()
                     list.forEach {
@@ -40,11 +39,10 @@ class CategoriesViewModel  @Inject constructor(
                         it.title = it.title?.lowercase() ?: ""
                     }
                     _itemList.postValue(list)
-                } else {
-                    Log.d("App error : ", error)
-                }
                 _progress.postValue(false)
-            }
+            }, { error ->
+                Log.d("App error : ", error)
+            })
         }
     }
 

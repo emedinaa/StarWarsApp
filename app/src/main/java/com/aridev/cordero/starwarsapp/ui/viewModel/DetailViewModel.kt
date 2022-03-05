@@ -138,8 +138,7 @@ class DetailViewModel  @Inject constructor(
     fun getUi( category : String, item : String) {
         _progress.value = true
         viewModelScope.launch {
-            getITemDetail.getItem(item) {success, error ->
-                if(error.isNullOrEmpty()) {
+            getITemDetail.getItem(item, {success ->
                     when(category.lowercase()) {
                         Categories.PEOPLE.value.lowercase() -> setPeople(success!!)
                         Categories.PLANETS.value.lowercase() -> setPlanets(success!!)
@@ -148,11 +147,10 @@ class DetailViewModel  @Inject constructor(
                         Categories.VEHICLES.value.lowercase() -> setVehicle(success!!)
                         Categories.STARSHIPS.value.lowercase() -> setStarships(success!!)
                     }
-                } else {
-                    Log.d("App error : ", error)
-                }
                 _progress.postValue(false)
-            }
+            }, { error ->
+                Log.d("App error : ", error)
+            })
         }
     }
 
